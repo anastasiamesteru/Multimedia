@@ -8,7 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <!-- Using Poppins font because it's cute -->
+    <!-- for poppins font because it's cute yurrr-->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
     <script src="script.js" type="module"></script>
@@ -17,15 +17,15 @@
     <title>Multimedia Project</title>
 </head>
 <body>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Options
-        </button>
-        <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Load Image</a></li>
-            <li><a class="dropdown-item" href="#">Difficulty</a></li>
-            <li><a class="dropdown-item" href="#">About</a></li>
-        </ul>
+    <div class="difficulty-buttons text-center mt-3">
+        <button class="btn btn-success difficulty-btn" id="easyBtn">Easy</button>
+        <button class="btn btn-warning difficulty-btn" id="mediumBtn">Medium</button>
+        <button class="btn btn-danger difficulty-btn" id="hardBtn">Hard</button>
     </div>
+
+    <div id="puzzle-container" class="text-center mt-4">
+        <canvas id="puzzleCanvas" width="500" height="500" style="border: 2px solid #000;"></canvas>
+    </div>
+      
 </body>
 </html>

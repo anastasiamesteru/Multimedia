@@ -1,3 +1,10 @@
+#puzzleCanvas {
+    display: block;               
+    margin: 0 auto;              
+    border: 2px solid #000;    
+    box-sizing: border-box;       
+}
+
 body {
     background-color: #dedbd2;
     margin: 0;
@@ -6,47 +13,26 @@ body {
     font-weight: bold;
 }
 
-.dropdown {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
+.difficulty-buttons {
+    text-align: center;
+    margin-top: 20px;
 }
 
-.btn-secondary {
-    background-color: #b0c4b1 !important;
-    border-color: #b0c4b1 !important;
-    color: black;
+.difficulty-btn {
+    margin: 0 10px;
     font-weight: bold;
     padding: 12px 16px;
     border-radius: 5px;
-    text-align: center;
-    display: inline-block;
-    width: auto;
 }
 
-.btn-secondary:hover,
-.btn-secondary:focus,
-.btn-secondary.active {
-    background-color: #4a5759 !important; /* to keep the hover color when button is clicked */
-    border-color: #b0c4b1 !important;
+.difficulty-btn:hover {
+    background-color: #4a5759;
     color: white;
 }
 
-.dropdown .dropdown-menu {
-    background-color: #b0c4b1 !important;
-    text-align: center;
-    padding: 0;
-    width: 200px;
-}
-
-.dropdown .dropdown-item {
-    color: black !important;
-    font-weight: bold;
-    padding: 12px 16px;
-}
-
-.dropdown .dropdown-item:hover {
-    background-color: #4a5759 !important;
-    color: #fff !important;
+#puzzle-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
 }
