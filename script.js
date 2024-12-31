@@ -1,3 +1,4 @@
+
 const canvas = document.getElementById('puzzleCanvas');
 const ctx = canvas.getContext('2d');
 let puzzleImage = new Image();
@@ -58,3 +59,7 @@ function setDifficulty(gridSize) {
     canvas.height = 500; 
     drawPuzzle(); 
 }
+
+function myStopFunction() {
+    clearTimeout(myTimeout);
+  }
