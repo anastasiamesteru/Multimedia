@@ -5,6 +5,7 @@ let easyWin=false;
 let timerId = null;
 $(document).ready(function () {
   initializeLevelButtons();
+
   $(".has-animation").each(function (index) {
     $(this)
       .delay($(this).data("delay"))
@@ -46,9 +47,15 @@ function resetTimer() {
     "animate__bounce"
   );
   startBtn.disabled = false;
+
+  document.getElementById("timerSound").pause();
+  document.getElementById("timerSound").currentTime = 0;
+
 }
 
 function initializeLevelButtons() {
+ // document.getElementById("introSound").play();
+
   document.getElementById("easyBtn").addEventListener("click", function () {
     $("#puzzle-container").removeAttr("style");
     document.getElementById("mediumBtn").disabled = true;
@@ -172,7 +179,8 @@ function timer() {
       }
     }, 1000);
     showpuzzle();
-    playTimerSound();
+    document.getElementById("timerSound").play(); 
+
   }
 
   startBtn.addEventListener("click", startTimer);
@@ -229,9 +237,11 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
     }
   }
   if (data == "poza2") {
@@ -241,9 +251,13 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza3") {
@@ -253,9 +267,13 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza4") {
@@ -265,9 +283,13 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza5") {
@@ -277,9 +299,13 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza6") {
@@ -289,9 +315,13 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza7") {
@@ -301,9 +331,13 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza8") {
@@ -314,9 +348,13 @@ function drop(ev) {
       img.style.display = "none";
 
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
   }
   if (data == "poza9") {
@@ -326,11 +364,15 @@ function drop(ev) {
       ctx.drawImage(img, x, y);
       img.style.display = "none";
       counter++;
+      document.getElementById("correctSound").play(); 
+
     }
     else{
         counterHard++;
+        document.getElementById("wrongSound").play(); 
+
     }
-  }
+  } 
   if (counter == 9) {
     resetTimer();
   }
@@ -375,8 +417,7 @@ function drop(ev) {
         $("#gameOver").removeAttr("style");
 
         resetTimer();
-        playLoseSound();
-        }
+      }
 
     
 
@@ -415,7 +456,8 @@ function drop(ev) {
         $(".animated-text").removeAttr("style");
         $(".confetti-piece").removeAttr("style");
     }, 1000);
-    playWinSound();
+    document.getElementById("winSound").play(); 
+
 
     }
 
@@ -452,51 +494,6 @@ function triggerGameOver() {
     $("#mediumBtn").hide();
     $("#gameOver").removeAttr("style");
 
-    playLoseSound();
-}
+    document.getElementById("loseSound").play(); 
+  }
 
-//Audio API integration
-
-//
-const correctSound = document.getElementById("correctSound");
-const wrongSound = document.getElementById("wrongSound");
-const timerSound = document.getElementById("timerSound");
-const loseSound = document.getElementById("loseSound");
-const winSound = document.getElementById("winSound");
-
-// Play sound functions
-function playCorrectSound() {
-  correctSound.play().catch((e) => console.error("Correct sound playback error:", e));
-}
-
-function playWrongSound() {
-  wrongSound.play().catch((e) => console.error("Wrong sound playback error:", e));
-}
-
-function playTimerSound() {
-  timerSound.play().catch((e) => console.error("Timer sound playback error:", e));
-}
-
-function playLoseSound() {
-  loseSound.play().catch((e) => console.error("Lose sound playback error:", e));
-}
-
-function playWinSound() {
-  winSound.play().catch((e) => console.error("Win sound playback error:", e));
-}
-
-//Sound volume settings
-correctSound.volume = 1.0; 
-correctSound.muted = false;
-
-wrongSound.volume = 1.0; 
-wrongSound.muted = false;
-
-timerSound.volume = 1.0; 
-timerSound.muted = false;
-
-loseSound.volume = 1.0; 
-loseSound.muted = false;
-
-winSound.volume = 1.0; 
-winSound.muted = false;
