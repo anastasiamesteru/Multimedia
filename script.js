@@ -172,6 +172,7 @@ function timer() {
       }
     }, 1000);
     showpuzzle();
+    playTimerSound();
   }
 
   startBtn.addEventListener("click", startTimer);
@@ -374,7 +375,8 @@ function drop(ev) {
         $("#gameOver").removeAttr("style");
 
         resetTimer();
-    }
+        playLoseSound();
+        }
 
     
 
@@ -413,6 +415,8 @@ function drop(ev) {
         $(".animated-text").removeAttr("style");
         $(".confetti-piece").removeAttr("style");
     }, 1000);
+    playWinSound();
+
     }
 
   console.log(isHard,"ishard???");
@@ -448,6 +452,51 @@ function triggerGameOver() {
     $("#mediumBtn").hide();
     $("#gameOver").removeAttr("style");
 
-
+    playLoseSound();
 }
 
+//Audio API integration
+
+//
+const correctSound = document.getElementById("correctSound");
+const wrongSound = document.getElementById("wrongSound");
+const timerSound = document.getElementById("timerSound");
+const loseSound = document.getElementById("loseSound");
+const winSound = document.getElementById("winSound");
+
+// Play sound functions
+function playCorrectSound() {
+  correctSound.play().catch((e) => console.error("Correct sound playback error:", e));
+}
+
+function playWrongSound() {
+  wrongSound.play().catch((e) => console.error("Wrong sound playback error:", e));
+}
+
+function playTimerSound() {
+  timerSound.play().catch((e) => console.error("Timer sound playback error:", e));
+}
+
+function playLoseSound() {
+  loseSound.play().catch((e) => console.error("Lose sound playback error:", e));
+}
+
+function playWinSound() {
+  winSound.play().catch((e) => console.error("Win sound playback error:", e));
+}
+
+//Sound volume settings
+correctSound.volume = 1.0; 
+correctSound.muted = false;
+
+wrongSound.volume = 1.0; 
+wrongSound.muted = false;
+
+timerSound.volume = 1.0; 
+timerSound.muted = false;
+
+loseSound.volume = 1.0; 
+loseSound.muted = false;
+
+winSound.volume = 1.0; 
+winSound.muted = false;
