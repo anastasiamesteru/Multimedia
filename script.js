@@ -406,6 +406,10 @@ function drop(ev) {
         $(".btn-danger").hide();
         $("#easyBtn").hide();
         $("#mediumBtn").hide();
+        $(".hearts").hide();
+        $("#lives1").hide();
+        $("#lives2").hide();
+        $("#lives3").hide();
         $(".animated-text").removeAttr("style");
         $(".confetti-piece").removeAttr("style");
     }, 1000);
